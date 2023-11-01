@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <script src="/js/loader.js"></script> -->
+    <script type="module">
+      import { fizzbuzz, readMemory, memory } from "./build/release.js";
+
+      document.body.innerText = fizzbuzz(15);
+
+      const memoryArray = new Uint8Array(memory.buffer);
+      // Read from memory at index 1
+      // Returns 99
+      document.write(memoryArray[1]);
+      document.write("<br/>");
+      // Write to memory at index 2
+      memoryArray[2] = 42;
+      // Returns 42
+      document.write(readMemory(2));
+    </script>
+  </head>
+  <body></body>
+</html>
